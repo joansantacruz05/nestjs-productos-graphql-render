@@ -8,6 +8,8 @@ import { AppController } from './app.controller.js';
 import { AppService } from './app.service.js';
 import { ProductosResolver } from './productos/productos.resolver.js';
 
+import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
+
 export const { ObserveModule, ObserveInstrument } = createObserveModule();
 
 @Module({
@@ -20,6 +22,9 @@ export const { ObserveModule, ObserveInstrument } = createObserveModule();
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'schema.gql'),
+      playground: false,
+      plugins: [ApolloServerPluginLandingPageLocalDefault()],
+      introspection: true,
     }),
     HttpModule.register({}),
   ],
