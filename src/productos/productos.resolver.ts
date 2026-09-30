@@ -3,7 +3,7 @@ import { HttpService } from '@nestjs/axios';
 import { firstValueFrom } from 'rxjs';
 import { Producto } from './producto.model.js';
 
-const API_URL = 'https://nestjs-productos-api.onrender.com/api/v1/productos';
+const API_URL = 'https://practica-2-fij2.onrender.com/api/v1/productos';
 
 @Resolver(() => Producto)
 export class ProductosResolver {
